@@ -1,13 +1,113 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --gryffindor: #7f0909;
+  --ravenclaw: #0e1a40;
+  --hufflepuff: #ecb939;
+  --slytherin: #1a472a;
+  --scroll-bg: #fffdf6;
+  --scroll-edge: #d1bfa7;
+  --font-hogwarts: 'Cinzel', serif;
+  --magic-border: 3px solid #ba9e66;
+  --radius: 12px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Import Hogwarts-like font */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
+
+body {
+  background: linear-gradient(to bottom, #f6f2e9, #e0d2b5);
+  font-family: 'Georgia', serif;
+  color: #3b2d1f;
+  margin: 0;
+  padding: 0;
+}
+
+.app-header {
+  background: #000;
+  color: #f0c75e;
+  font-family: var(--font-hogwarts);
+  text-align: center;
+  padding: 1.5rem 0;
+  border-bottom: var(--magic-border);
+  font-size: 2rem;
+  letter-spacing: 1.5px;
+}
+
+.chat-container {
+  background: var(--scroll-bg);
+  border: 6px solid var(--scroll-edge);
+  max-width: 700px;
+  margin: 2rem auto;
+  border-radius: var(--radius);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+}
+
+.messages {
+  padding: 1rem;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.message {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  font-size: 1.1rem;
+  line-height: 1.5;
+  max-width: 80%;
+}
+
+.user-message {
+  align-self: flex-end;
+  background-color: #d7ccc8;
+  color: #3e2723;
+  border-bottom-right-radius: 0;
+}
+
+.assistant-message {
+  align-self: flex-start;
+  background-color: #f3e5ab;
+  border-bottom-left-radius: 0;
+  font-family: var(--font-hogwarts);
+}
+
+.input-form {
+  display: flex;
+  padding: 1rem;
+  background-color: #f8f4e3;
+  border-top: 3px solid var(--scroll-edge);
+}
+
+.input-form input {
+  flex: 1;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 2px solid #d1bfa7;
+  border-radius: var(--radius);
+}
+
+.input-form button {
+  margin-left: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background-color: #4a148c;
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-family: var(--font-hogwarts);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.input-form button:hover {
+  background-color: #6a1b9a;
+}
+
+.welcome-message {
+  text-align: center;
+  margin: 2rem 0;
+  font-style: italic;
+  color: #5d4037;
 }
