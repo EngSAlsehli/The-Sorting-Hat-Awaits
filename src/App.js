@@ -5,8 +5,19 @@ const QUESTIONS = [
   "Ah, a new witch or wizard! Tell me, do you value courage or cleverness more?",
   "Would you rather explore a mysterious forest or an ancient library?",
   "In a duel, would you rely on instinct or planning?",
-  "Do you prefer loyalty, ambition, wisdom, or bravery?"
+  "Do you prefer loyalty, ambition, wisdom, or bravery?",
+  "Which magical creature do you admire most: phoenix, dragon, unicorn, or basilisk?",
+  "If offered one, which would you choose: power, knowledge, friends, or glory?",
+  "What kind of magic appeals most to you: charms, potions, transfiguration, or dark arts?",
+  "Would you break the rules to do what’s right?",
+  "A friend cheats on an exam—what do you do: tell the professor, confront them, ignore it, or help them?",
+  "You find a mysterious book in the Restricted Section. Do you open it?",
+  "Which quality defines you best: determination, intelligence, patience, or ambition?",
+  "You’re lost at night at Hogwarts. Where do you go: the library, common room, forbidden corridor, or owlery?",
+  "You’re offered a chance to lead a group. Do you take it with pride, hesitation, refusal, or strategy?",
+  "Last one: What do you want to be remembered for — heroism, wisdom, kindness, or greatness?"
 ];
+
 
 function App() {
   const [messages, setMessages] = useState([]);
@@ -65,18 +76,19 @@ function App() {
       Hufflepuff: 0,
       Slytherin: 0
     };
-
+  
     for (const answer of answers) {
-      if (/brave|courage|instinct/.test(answer)) scores.Gryffindor++;
-      if (/wise|intelligence|library|clever|planning/.test(answer)) scores.Ravenclaw++;
-      if (/loyal|forest|friend|kind/.test(answer)) scores.Hufflepuff++;
-      if (/ambition|power|sly|resourceful/.test(answer)) scores.Slytherin++;
+      const a = answer.toLowerCase();
+  
+      if (/brave|courage|instinct|hero|phoenix|glory|duel/.test(a)) scores.Gryffindor++;
+      if (/clever|library|wise|knowledge|intelligence|strategy|book|transfiguration/.test(a)) scores.Ravenclaw++;
+      if (/loyal|patience|friend|kind|help|unicorn|charms|ignore|kindness/.test(a)) scores.Hufflepuff++;
+      if (/ambition|power|dark|basilisk|sly|rules|greatness|dragon/.test(a)) scores.Slytherin++;
     }
-
-    // Return house with highest score
+  
     return Object.entries(scores).sort((a, b) => b[1] - a[1])[0][0];
   };
-
+  
   return (
     <div className="app">
       <header className="app-header">
